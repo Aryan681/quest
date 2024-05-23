@@ -846,7 +846,63 @@ public class MyApplet extends Applet {
             
             <p>By mastering these exception handling concepts, developers can write more resilient and error-tolerant Java applications.</p>
         </div>
-        
+        <div class="question">
+    <h2>6. Explaining the Thread Life Cycle with Examples:</h2>
+    <p>Threads in Java undergo a predefined life cycle, progressing through different states. Let's explore each state and its significance with examples.</p>
+    
+    <!-- New State -->
+    <h3>New State:</h3>
+    <p>A thread enters the new state when it's instantiated but not yet started.</p>
+    <pre><code>Thread thread = new Thread();</code></pre>
+    
+    <!-- Runnable State -->
+    <h3>Runnable State:</h3>
+    <p>A thread enters the runnable state when it's ready to run but waiting for CPU time.</p>
+    <pre><code>Thread thread = new Thread(() -&gt; {
+    // Thread code
+});
+thread.start();</code></pre>
+    
+    <!-- Running State -->
+    <h3>Running State:</h3>
+    <p>A thread enters the running state when it's executing its code.</p>
+    <pre><code>Thread thread = new Thread(() -&gt; {
+    // Thread code
+});
+thread.start();</code></pre>
+    
+    <!-- Blocked State -->
+    <h3>Blocked State:</h3>
+    <p>A thread enters the blocked state when it's waiting for a resource, such as I/O or synchronization lock.</p>
+    <pre><code>synchronized (lock) {
+    // Code requiring lock
+}</code></pre>
+    
+    <!-- Waiting State -->
+    <h3>Waiting State:</h3>
+    <p>A thread enters the waiting state when it's waiting indefinitely for another thread to notify it.</p>
+    <pre><code>synchronized (lock) {
+    lock.wait();
+}</code></pre>
+    
+    <!-- Timed Waiting State -->
+    <h3>Timed Waiting State:</h3>
+    <p>A thread enters the timed waiting state when it's waiting for a specified duration.</p>
+    <pre><code>synchronized (lock) {
+    lock.wait(timeout);
+}</code></pre>
+    
+    <!-- Terminated State -->
+    <h3>Terminated State:</h3>
+    <p>A thread enters the terminated state when its run method completes or when an uncaught exception terminates it.</p>
+    <pre><code>Thread thread = new Thread(() -&gt; {
+    // Thread code
+});
+thread.start();</code></pre>
+    
+    <p>Understanding the thread life cycle is crucial for writing multithreaded applications in Java, ensuring efficient and synchronized execution of concurrent tasks.</p>
+</div>
+
     </div>
 
 
