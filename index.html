@@ -654,7 +654,199 @@ class Circle implements Shape {
             <p>In summary, hybrid inheritance in Java enables classes to inherit properties and behaviors from both classes and interfaces, leading to more flexible and modular class hierarchies. By combining the benefits of single and multiple inheritance, hybrid inheritance promotes code reuse and extensibility.</p>
         </div>
         
+ <div class="question">
+            <h2> 4.Formulating the Swing Class Concept with Examples:</h2>
+            <p>Swing, a GUI toolkit for Java, empowers developers to create rich graphical user interfaces (GUIs)
+                effortlessly. Let's delve into its concept and functionality, accompanied by illustrative examples.</p>
 
+            <h3>Key Components and Examples:</h3>
+
+            <h4>JFrame:</h4>
+            <p>JFrame acts as the primary window container for Swing applications. It hosts other Swing components and
+                defines the overall application window.</p>
+            <pre><code>import javax.swing.*;
+        
+        public class MainFrameExample {
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Swing Example");
+                frame.setSize(400, 300);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        }</code></pre>
+
+            <h4>JPanel:</h4>
+            <p>JPanel serves as a container for grouping and organizing other components within a window. It allows for
+                flexible layout management and structure.</p>
+            <pre><code>import javax.swing.*;
+        
+        public class PanelExample {
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Swing Panel Example");
+                JPanel panel = new JPanel();
+                panel.add(new JLabel("Hello, Swing!"));
+                frame.add(panel);
+                frame.setSize(300, 200);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        }</code></pre>
+
+            <h4>JButton:</h4>
+            <p>JButton represents a clickable button component that triggers actions when pressed.</p>
+            <pre><code>import javax.swing.*;
+        
+        public class ButtonExample {
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Button Example");
+                JButton button = new JButton("Click Me");
+                frame.add(button);
+                frame.setSize(200, 100);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        }</code></pre>
+
+            <h4>JLabel:</h4>
+            <p>JLabel is used for displaying text or images within a Swing application.</p>
+            <pre><code>import javax.swing.*;
+        
+        public class LabelExample {
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Label Example");
+                JLabel label = new JLabel("Hello, Swing!");
+                frame.add(label);
+                frame.setSize(200, 100);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        }</code></pre>
+
+            <p>Swing's versatility and ease of use make it a preferred choice for developing cross-platform GUI
+                applications in Java, catering to diverse user interface requirements with minimal effort.</p>
+        </div>
+
+        <div class="question">
+            <h2>5. Elaborating the Applet Architecture with its Life Cycle and Examples:</h2>
+            <p>Java applets, though less prevalent today, remain a significant aspect of Java programming, especially
+                for web-based applications. Let's explore the architecture, life cycle, and examples of Java applets in
+                detail.</p>
+
+            <!-- Applet Architecture -->
+            <p>Applet Architecture:</p>
+            <ul>
+                <li>
+                    <h3>Initialization (init):</h3>
+                    <p>The init method is called when an applet is first loaded into the browser. It's used for one-time
+                        initialization tasks, such as setting up GUI components or initializing data.</p>
+                </li>
+                <li>
+                    <h3>Starting (start):</h3>
+                    <p>The start method is invoked after initialization and whenever the applet becomes visible. It's
+                        used to start animations, initiate network connections, or perform other dynamic tasks.</p>
+                </li>
+                <li>
+                    <h3>Rendering (paint):</h3>
+                    <p>The paint method is called whenever the applet needs to redraw itself, such as when it's resized
+                        or obscured by other windows. It's where graphics and other visual elements are rendered onto
+                        the applet's surface.</p>
+                </li>
+                <li>
+                    <h3>Stopping (stop):</h3>
+                    <p>The stop method is called when the applet becomes inactive, such as when the user navigates to
+                        another webpage. It's used to pause ongoing tasks or animations.</p>
+                </li>
+                <li>
+                    <h3>Destruction (destroy):</h3>
+                    <p>The destroy method is invoked when the applet is no longer needed, such as when the webpage is
+                        closed or refreshed. It's used for cleanup tasks, such as releasing resources or closing
+                        connections.</p>
+                </li>
+            </ul>
+
+            <!-- Example -->
+            <p>Example:</p>
+            <pre><code>import java.applet.*;
+import java.awt.*;
+
+public class MyApplet extends Applet {
+    public void init() {
+        // Initialization code
+    }
+
+    public void start() {
+        // Start code
+    }
+
+    public void paint(Graphics g) {
+        // Drawing code
+    }
+
+    public void stop() {
+        // Stop code
+    }
+
+    public void destroy() {
+        // Cleanup code
+    }
+}</code></pre>
+        </div>
+        <div class="question">
+            <h2>6.Discussing Different Exception Handling Concepts with Illustrations:</h2>
+            <p>Exception handling is integral to writing robust and reliable Java programs. Let's explore various concepts along with practical illustrations.</p>
+            
+            <!-- 1. try-catch Blocks -->
+            <h3>1. try-catch Blocks:</h3>
+            <p>Use try-catch blocks to catch exceptions and handle them gracefully.</p>
+            <pre><code>try {
+            // Risky code
+        } catch (ExceptionType e) {
+            // Handling code
+        }</code></pre>
+            
+            <!-- 2. Checked and Unchecked Exceptions -->
+            <h3>2. Checked and Unchecked Exceptions:</h3>
+            <p>Java differentiates between checked and unchecked exceptions. Checked exceptions must be either caught or declared in the method signature, while unchecked exceptions need not be explicitly handled.</p>
+            <pre><code>// Checked exception
+        try {
+            FileReader file = new FileReader("file.txt");
+        } catch (FileNotFoundException e) {
+            // Handling code
+        }
+        
+        // Unchecked exception
+        int result = 10 / 0; // ArithmeticException</code></pre>
+            
+            <!-- 3. Finally Block -->
+            <h3>3. Finally Block:</h3>
+            <p>The finally block executes cleanup code, regardless of whether an exception occurs or not.</p>
+            <pre><code>try {
+            // Risky code
+        } catch (Exception e) {
+            // Handling code
+        } finally {
+            // Cleanup code
+        }</code></pre>
+            
+            <!-- 4. Custom Exceptions -->
+            <h3>4. Custom Exceptions:</h3>
+            <p>Create custom exception classes to handle specific error conditions.</p>
+            <pre><code>class MyException extends Exception {
+            public MyException(String message) {
+                super(message);
+            }
+        }
+        
+        try {
+            // Risky code
+            throw new MyException("Custom exception occurred");
+        } catch (MyException e) {
+            // Handling code
+        }</code></pre>
+            
+            <p>By mastering these exception handling concepts, developers can write more resilient and error-tolerant Java applications.</p>
+        </div>
+        
     </div>
 
 
