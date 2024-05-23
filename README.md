@@ -2,8 +2,9 @@
 
 Java Q&A
 2 marks
+
 1. What is class in Java?
-In Java, a class is a blueprint or template for creating objects. It defines the properties (fields) and behaviors (methods) that objects of that type will have.
+In Java, a class is a bkueprint or template for creating objects. It defines the properties (fields) and behaviors (methods) that objects of that type will have.
 
 2. Write a Java program to print Fibonacci series.
 This Java program prints the Fibonacci series up to a specified number of terms using loops or recursion, demonstrating algorithmic understanding and coding skills.
