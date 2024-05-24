@@ -1390,6 +1390,71 @@ public class Applet2 extends Applet {
     }
 }</code></pre>
 </div>
+        <div class="question">
+    <h2>20. Design the Hierarchy of Java Exception classes with a picture</h2>
+    <p>The Java Exception hierarchy starts from <code>Throwable</code>, which branches into <code>Error</code> and <code>Exception</code>. <code>Exception</code> further divides into <code>RuntimeException</code> and checked exceptions.</p>
+    <p>Visual Diagram:</p>
+    <!-- You can insert a picture or draw a simple diagram here -->
+    <pre><code>
+        Throwable
+        ├── Error
+        └── Exception
+            ├── RuntimeException
+            └── (other checked exceptions)
+    </code></pre>
+</div>
+
+<div class="question">
+    <h2>21. Examine the need for adapter classes in any program with an example</h2>
+    <p>Adapter classes provide default implementations for listener interfaces, allowing developers to override only the methods they need.</p>
+    <pre><code>import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+
+public class AdapterExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Adapter Example");
+        frame.setSize(300, 200);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Window is closing");
+                System.exit(0);
+            }
+        });
+        frame.setVisible(true);
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>22. Is hybrid inheritance involving multiple inheritances possible? If so, elaborate on it. Justify</h2>
+    <p>Java does not support multiple inheritance directly to avoid complexity and ambiguity. However, it supports multiple inheritance of type through interfaces.</p>
+    <pre><code>interface A {
+    void methodA();
+}
+
+interface B {
+    void methodB();
+}
+
+class C implements A, B {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+    public void methodB() {
+        System.out.println("Method B");
+    }
+}
+
+public class HybridInheritanceExample {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.methodA();
+        obj.methodB();
+    }
+}</code></pre>
+</div>
     </div>
 
 
