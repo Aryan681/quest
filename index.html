@@ -800,7 +800,7 @@ public class MyApplet extends Applet {
 }</code></pre>
         </div>
         <div class="question">
-            <h2>6.Discussing Different Exception Handling Concepts with Illustrations:</h2>
+            <h2>7.Discussing Different Exception Handling Concepts with Illustrations:</h2>
             <p>Exception handling is integral to writing robust and reliable Java programs. Let's explore various concepts along with practical illustrations.</p>
             
             <!-- 1. try-catch Blocks -->
@@ -910,7 +910,273 @@ thread.start();</code></pre>
     
     <p>Understanding the thread life cycle is crucial for writing multithreaded applications in Java, ensuring efficient and synchronized execution of concurrent tasks.</p>
 </div>
+<hr>
+        <h1> 7 marks </h1>
 
+        <hr>
+    <div class="question">
+        <h2>1. Explain multi-threading using an interface</h2>
+        <p>In Java, multithreading can be achieved using the <code>Runnable</code> interface. The <code>Runnable</code> interface represents a task that can be executed by a thread. To use it, a class needs to implement the <code>Runnable</code> interface and override its <code>run</code> method. Here’s an example:</p>
+        <pre><code>
+class MyRunnable implements Runnable {
+    public void run() {
+        for (int i = 0; i &lt; 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " - " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new MyRunnable());
+        Thread thread2 = new Thread(new MyRunnable());
+        
+        thread1.start();
+        thread2.start();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>2. What is the Java 'instanceof' operator? Explain with an example</h2>
+        <p>The <code>instanceof</code> operator in Java is used to test whether an object is an instance of a specific class or subclass. It helps in ensuring that an object is of the type you expect before performing operations on it.</p>
+        <pre><code>
+class Animal {}
+class Dog extends Animal {}
+
+public class InstanceofExample {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        
+        if (myDog instanceof Dog) {
+            System.out.println("myDog is an instance of Dog");
+        } else {
+            System.out.println("myDog is not an instance of Dog");
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>3. Explain the concept of polymorphism with the help of an example</h2>
+        <p>Polymorphism in Java allows objects to be treated as instances of their parent class rather than their actual class. It is mainly achieved through method overriding and interfaces.</p>
+        <pre><code>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        Animal myAnimal = new Dog();
+        myAnimal.sound(); // Outputs: Dog barks
+
+        myAnimal = new Cat();
+        myAnimal.sound(); // Outputs: Cat meows
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>4. What is method overriding? Explain with an example</h2>
+        <p>Method overriding occurs when a subclass provides a specific implementation for a method that is already defined in its superclass.</p>
+        <pre><code>
+class Parent {
+    void display() {
+        System.out.println("Display in Parent");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    void display() {
+        System.out.println("Display in Child");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.display(); // Outputs: Display in Child
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>5. What is a String? Explain the functions of String with examples</h2>
+        <p>In Java, a <code>String</code> is an object that represents a sequence of characters. Strings are immutable, meaning once created, their values cannot be changed.</p>
+        <pre><code>
+public class StringExample {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        System.out.println("Length: " + str.length());
+        System.out.println("Char at index 1: " + str.charAt(1));
+        System.out.println("Substring: " + str.substring(7, 12));
+        System.out.println("Uppercase: " + str.toUpperCase());
+        System.out.println("Contains 'World': " + str.contains("World"));
+        System.out.println("Replace 'World' with 'Java': " + str.replace("World", "Java"));
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>6. What is the use of the 'final' keyword in Java? Explain with an example</h2>
+        <p>The <code>final</code> keyword in Java is used to declare constants, prevent method overriding, and inheritance.</p>
+        <pre><code>
+final class FinalClass {
+    final int constant = 10;
+    
+    final void show() {
+        System.out.println("This is a final method.");
+    }
+}
+
+// This will cause a compile-time error
+// class SubClass extends FinalClass {}
+
+public class FinalKeywordExample {
+    public static void main(String[] args) {
+        FinalClass obj = new FinalClass();
+        System.out.println("Constant value: " + obj.constant);
+        obj.show();
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>7. What are the differences between Heap and Stack Memory in Java?</h2>
+        <p>
+            <strong>Stack Memory:</strong><br>
+            - Used for static memory allocation.<br>
+            - Stores method calls, local variables, and references.<br>
+            - Memory is automatically allocated and deallocated when methods are called and return.<br>
+            - Operates on a Last In, First Out (LIFO) basis.<br>
+            - Faster access but limited in size.<br>
+        </p>
+        <p>
+            <strong>Heap Memory:</strong><br>
+            - Used for dynamic memory allocation.<br>
+            - Stores objects and arrays.<br>
+            - Memory needs to be managed using garbage collection.<br>
+            - Larger size and slower access compared to stack.<br>
+            - Accessible from anywhere in the application.<br>
+        </p>
+        <pre><code>
+public class MemoryExample {
+    public static void main(String[] args) {
+        int localVar = 10; // Stack memory
+        String str = new String("Heap Memory"); // Heap memory
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>8. Assess the significance of using multiple exceptions in Java with examples</h2>
+        <p>Handling multiple exceptions allows for more robust and specific error management. It helps catch and handle different types of exceptions separately.</p>
+        <pre><code>
+public class MultipleExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[5];
+            arr[5] = 30 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: " + e.getMessage());
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array Index Out of Bounds Exception: " + e.getMessage());
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>9. Deduct the String handling operations and its types with examples</h2>
+        <p>String handling in Java involves various operations such as concatenation, comparison, searching, and modification.</p>
+        <pre><code>
+public class StringOperationsExample {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        
+        // Concatenation
+        String concatenated = str1 + " " + str2;
+        System.out.println("Concatenated: " + concatenated);
+        
+        // Comparison
+        boolean isEqual = str1.equals(str2);
+        System.out.println("Strings are equal: " + isEqual);
+        
+        // Searching
+        int index = concatenated.indexOf("World");
+        System.out.println("Index of 'World': " + index);
+        
+        // Modification
+        String replaced = concatenated.replace("World", "Java");
+        System.out.println("Replaced: " + replaced);
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="question">
+        <h2>10. Review the JDBC connectivity and show it with an example</h2>
+        <p>JDBC (Java Database Connectivity) allows Java applications to interact with databases.</p>
+        <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JDBCExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydatabase";
+        String user = "root";
+        String password = "password";
+
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM mytable");
+
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id") + ", Name: " + rs.getString("name"));
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+    </div>
     </div>
 
 
