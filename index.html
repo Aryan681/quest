@@ -1455,6 +1455,92 @@ public class HybridInheritanceExample {
     }
 }</code></pre>
 </div>
+        <div class="question">
+    <h2>23. List the similarities and differences between C++ and Java</h2>
+    <p><strong>Similarities:</strong></p>
+    <ul>
+        <li>Both are object-oriented languages.</li>
+        <li>Both support basic programming constructs like loops, conditionals, and data types.</li>
+        <li>Both use similar syntax (e.g., semicolons to terminate statements).</li>
+    </ul>
+    <p><strong>Differences:</strong></p>
+    <ul>
+        <li><strong>Memory Management:</strong> Java uses automatic garbage collection, while C++ requires manual memory management using <code>new</code> and <code>delete</code>.</li>
+        <li><strong>Multiple Inheritance:</strong> C++ supports multiple inheritance, Java supports it only through interfaces.</li>
+        <li><strong>Platform Independence:</strong> Java is platform-independent due to the JVM, while C++ is platform-dependent.</li>
+        <li><strong>Pointers:</strong> Java does not support pointers explicitly, C++ does.</li>
+        <li><strong>Library Support:</strong> Java has a rich standard library that is consistently available across platforms, whereas C++ libraries can vary by implementation.</li>
+    </ul>
+</div>
+        <div class="question">
+    <h2>24. Elaborate on the concept of Java Reflection with an example</h2>
+    <p>Java Reflection allows examining or modifying the runtime behavior of applications. It provides APIs to inspect classes, interfaces, fields, and methods at runtime.</p>
+    <p>Example:</p>
+    <pre><code>import java.lang.reflect.Method;
+
+public class ReflectionExample {
+    public static void main(String[] args) throws Exception {
+        // Load the class
+        Class<?> cls = Class.forName("java.lang.String");
+
+        // Get all methods of the class
+        Method[] methods = cls.getDeclaredMethods();
+
+        // Print the methods
+        for (Method method : methods) {
+            System.out.println(method.getName());
+        }
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>25. Explain the concept of abstraction in Java with an example</h2>
+    <p>Abstraction is the process of hiding the implementation details and showing only the essential features of an object. In Java, abstraction is achieved using abstract classes and interfaces.</p>
+    <p>Example:</p>
+    <pre><code>abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+class Rectangle extends Shape {
+    void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        circle.draw();
+        rectangle.draw();
+    }
+}</code></pre>
+</div>
+        <div class="question">
+    <h2>23. List the similarities and differences between C++ and Java</h2>
+    <p><strong>Similarities:</strong></p>
+    <ul>
+        <li>Both are object-oriented languages.</li>
+        <li>Both support basic programming constructs like loops, conditionals, and data types.</li>
+        <li>Both use similar syntax (e.g., semicolons to terminate statements).</li>
+    </ul>
+    <p><strong>Differences:</strong></p>
+    <ul>
+        <li><strong>Memory Management:</strong> Java uses automatic garbage collection, while C++ requires manual memory management using <code>new</code> and <code>delete</code>.</li>
+        <li><strong>Multiple Inheritance:</strong> C++ supports multiple inheritance, Java supports it only through interfaces.</li>
+        <li><strong>Platform Independence:</strong> Java is platform-independent due to the JVM, while C++ is platform-dependent.</li>
+        <li><strong>Pointers:</strong> Java does not support pointers explicitly, C++ does.</li>
+        <li><strong>Library Support:</strong> Java has a rich standard library that is consistently available across platforms, whereas C++ libraries can vary by implementation.</li>
+    </ul>
+</div>
     </div>
 
 
