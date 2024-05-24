@@ -1177,6 +1177,81 @@ public class JDBCExample {
 }
 </code></pre>
     </div>
+
+        
+<div class="question">
+    <h2>11. Construct the Java Input and Output streams with their instances</h2>
+    <pre><code>import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class IOExample {
+    public static void main(String[] args) {
+        String data = "Hello, World!";
+        try (FileOutputStream fos = new FileOutputStream("output.txt")) {
+            fos.write(data.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (FileInputStream fis = new FileInputStream("output.txt")) {
+            int content;
+            while ((content = fis.read()) != -1) {
+                System.out.print((char) content);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>12. With the servlets architecture, discuss its life cycle with an example</h2>
+    <pre><code>import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class MyServlet extends HttpServlet {
+    @Override
+    public void init() throws ServletException {
+        // Initialization code
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.getWriter().println("Hello, World!");
+    }
+
+    @Override
+    public void destroy() {
+        // Cleanup code
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>13. Interpret Servlets concept with an example</h2>
+    <pre><code>import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.getWriter().println("<h1>Hello, World!</h1>");
+    }
+}</code></pre>
+</div>
     </div>
 
 
