@@ -1252,6 +1252,83 @@ public class HelloServlet extends HttpServlet {
     }
 }</code></pre>
 </div>
+        
+<div class="question">
+    <h2>14. Interpret synchronization concept with an example</h2>
+    <pre><code>class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+public class SynchronizationExample {
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+
+        Runnable task = () -&gt; {
+            for (int i = 0; i &lt; 1000; i++) {
+                counter.increment();
+            }
+        };
+
+        Thread thread1 = new Thread(task);
+        Thread thread2 = new Thread(task);
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join();
+        thread2.join();
+
+        System.out.println("Count: " + counter.getCount());
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>15. Illustrate the Exception handling techniques</h2>
+    <pre><code>public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: Division by zero");
+        } finally {
+            System.out.println("This will always execute");
+        }
+    }
+}</code></pre>
+</div>
+
+<div class="question">
+    <h2>16. Compare and contrast the Event handling & Adapter Class</h2>
+    <pre><code>import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+
+public class EventHandlingExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Event Handling Example");
+        frame.setSize(300, 200);
+
+        frame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("Mouse clicked at: " + e.getPoint());
+            }
+        });
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}</code></pre>
+</div>
     </div>
 
 
